@@ -1,0 +1,175 @@
+.popup {
+    background-color: rgba($color-black, .8);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 2500;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+    
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {    // backdrop-filter is supported only by Safari
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, .3);
+    }
+    
+    &__content {
+        @include absCenter;
+        
+        width: 90%;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px;
+        display: table;
+        overflow: hidden;
+        
+        opacity: 0;
+//        transform: scale(.5);     //doesn't work becouse in the mixin is the other transform property so here shoul be added transform value from the mixin
+        transform: translate(-50%, -50%) scale(.25);
+        transition: all .4s .2s;    //.2s = delay
+        
+        @include respond(tab-land) {
+            width: 75%;
+        }
+        
+        @include respond(tab-port) {
+            width: 85%;
+        }
+        
+        @include respond(phone) {
+            width: 90%;
+        }
+        
+        
+    }
+    
+    &__left {
+        width: 33.3333%;
+//        float: left;
+        display: table-cell;
+        vertical-align: middle;
+        
+        
+        @include respond(tab-land) {
+            width: 100%;
+            display: block;
+        }
+        
+        @include respond(phone) {
+            display: none;
+        }
+        
+    }
+    
+    &__right {
+        width: 66.666666%;
+//        float: left;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 3rem 5rem;
+        
+        @include respond(tab-land) {
+            width: 100%;
+            display: block;
+        }
+        
+        @include respond(phone) {
+            padding: 2rem 4rem;
+        }
+    }
+    
+    &__img {
+        display: block;
+        width: 100%;
+        
+        @include respond(tab-land) {
+            width: 50%;
+            position: relative;
+            float: left;
+            padding-bottom: 2.5rem;
+//            
+//            &:last-child {
+//            top: -1.2rem;
+//            }
+        }
+        
+        @include respond(phone) {
+            display: none;
+        }
+        
+        
+    }
+    
+    &__text {
+        font-size: 1.4rem;
+//        margin-bottom: 4rem; / u-margin-bottom-medium
+        
+        -moz-column-count: 2;
+        -moz-column-gap: 4rem;    
+        -moz-column-rule: 1px solid $color-grey-light-2;
+        
+        column-count: 2;
+        column-gap: 4rem;    //1em = 14px = 1.4rem (current element font-size)
+        column-rule: 1px solid $color-grey-light-2;
+        
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        
+         @include respond(phone) {
+            font-size: 1.2rem;
+             -moz-column-count: 1;
+            column-count: 1;
+        }
+    }
+    
+    
+    // OPEN STATES
+    &:target {        //anchor of the link in the button; the target is the element with id 
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    
+    &__close {
+        &:link,
+        &:visited {
+            color: $color-grey-dark;
+            position: absolute;
+            top: 1.5rem;
+            right: 2.5rem;
+            font-size: 4rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            line-height: 1;
+            
+            @include respond(tab-land) {
+//                top: 1rem;
+//                right: 2rem;
+            }
+        
+            @include respond(tab-port) {
+//                top: 1rem;
+//                right: 2.5rem;
+            }
+
+            @include respond(phone) {
+//                top: 1rem;
+//                right: 2.5rem;
+            }
+        }
+        
+        &:hover {
+            color: $color-primary;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%;    //1 rem = 10px; 10px/16px = 62.5%
+    /*root font-size for rem sizing (rem not suported below internet explorer 9); we want font-size:10px so we can divide what we want by default 16px(10/16=0.625 > 62.5%) - with this we allow the user to zoom in on the page automaticly, not only to change the font-size but also zoom in on the page (increasing all measurments on our the page*/
+    
+    @include respond(tab-land) { //width <1200?
+        font-size: 56.25%; //1 rem = 9px; 9px/16px = 56.25%
+    }
+    
+    @include respond(tab-port) { //width <900?
+        font-size: 50%; //1 rem = 8px; 8px/16px = 50%
+    }
+   
+    
+    @include respond(big-desktop) {
+        font-size: 75%; //1 rem = 12px; 12px/16px = 75%
+    }
+}
+
+body {
+
+    box-sizing: border-box;
+    /* because > "*, *::after, *::before { box-sizing: inherit;}" */
+    padding: 3rem;
+    
+    @include respond(tab-port) { 
+        padding: 0;
+    }
+}
+
+::selection {                            //selected text by user
+    background-color: $color-primary;
+    color: $color-white;
+}
