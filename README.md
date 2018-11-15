@@ -2,9 +2,9 @@
 
 
 ### Projects:
-* [Natours](https://htmlpreview.github.io/?https://github.com/MartaNiemiec/Udemy-Advanced_CSS_and_Sass/blob/master/Notours/index.html)
-* [Trillo](https://htmlpreview.github.io/?https://github.com/MartaNiemiec/Udemy-Advanced_CSS_and_Sass/blob/master/Trillo/index.html)
-* [Nexter](https://htmlpreview.github.io/?https://github.com/MartaNiemiec/Udemy-Advanced_CSS_and_Sass/blob/master/Nexter/index.html)
+* [Natours](https://martaniemiec.github.io/Udemy-Advanced_CSS_and_Sass/Notours/index.html)
+* [Trillo](https://martaniemiec.github.io/Udemy-Advanced_CSS_and_Sass/Trillo/index.html)
+* [Nexter](https://martaniemiec.github.io/Udemy-Advanced_CSS_and_Sass/Nexter/index.html)
 
 ---
 
